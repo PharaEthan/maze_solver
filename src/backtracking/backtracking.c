@@ -8,7 +8,7 @@
 #include "solver.h"
 
 ////////////////////////
-// put the maze start //
+// Put the maze start //
 ////////////////////////
 void set_maze_start_end(solver_t *solver)
 {
@@ -43,6 +43,9 @@ int backtracking(solver_t *solver, int x, int y)
     return (0);
 }
 
+/////////////////////////////////////////////////////////
+// Replace start/end and Badpath by correct characters //
+/////////////////////////////////////////////////////////
 void edit_maze(solver_t *solver)
 {
     for (size_t y = 0; solver->map[y]; y++) {
