@@ -47,7 +47,7 @@ bool verif_map(char const *map);
 // Struct function //
 /////////////////////
 char **open_file(solver_t *solver, char const *filepath);
-solver_t *init_struct_solver(char const *filepath);
+solver_t init_struct_solver(char const *filepath);
 
 //////////////////////
 // Solving function //

@@ -22,25 +22,34 @@ static void resize_stack(void)
         return;
 }
 
+/////////////////////
+// Free the memory //
+/////////////////////
+static void free_struct(solver_t *solver)
+{
+    for (size_t i = 0; solver->map[i]; i++)
+        free(solver->map[i]);
+    free(solver->map);
+}
+
 /////////////////////////
 // Main of the project //
 /////////////////////////
 int main(int ac, char **av)
 {
-    solver_t *solver = NULL;
+    solver_t solver;
 
     error_handling(ac, av);
     solver = init_struct_solver(av[1]);
-    if (!solver)
-        return EXIT_FAILURE;
     resize_stack();
-    set_maze_start_end(solver);
-    if (backtracking(solver, 0, 0) == 0) {
+    set_maze_start_end(&solver);
+    if (backtracking(&solver, 0, 0) == 0) {
         printf("no solution found");
         return (0);
     }
-    edit_maze(solver);
-    for (size_t i = 0; solver->map[i]; i++)
-        printf("%s", solver->map[i]);
+    edit_maze(&solver);
+    for (size_t i = 0; solver.map[i]; i++)
+        printf("%s", solver.map[i]);
+    free_struct(&solver);
     return EXIT_SUCCESS;
 }

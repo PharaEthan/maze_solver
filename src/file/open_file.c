@@ -20,6 +20,7 @@ static size_t nb_line(char const *filepath)
     if (!file)
         exit(84);
     for (; getline(&line, &len, file) != -1; compt++);
+    free(line);
     fclose(file);
     return compt;
 }
@@ -41,12 +42,15 @@ char **open_file(solver_t *solver, char const *filepath)
     if (solver->height < 2)
         return NULL;
     buff = malloc(sizeof(char *) * (solver->height + 1));
-    if (!buff)
+    if (!buff) {
+        fclose(file);
         return NULL;
+    }
     for (; getline(&line, &len, file) != -1; i++) {
         buff[i] = line;
         line = NULL;
     }
+    free(line);
     buff[i] = NULL;
     fclose(file);
     return buff;
