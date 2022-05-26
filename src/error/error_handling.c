@@ -5,7 +5,8 @@
 ** Error handling
 */
 
-#include "solver.h"
+#include <stdlib.h>
+#include <sys/stat.h>
 
 ////////////////////////
 // check the argument //

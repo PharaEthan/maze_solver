@@ -6,6 +6,8 @@
 */
 
 #include "solver.h"
+#include <string.h>
+#include <stdlib.h>
 
 //////////////////////////////////
 // Initialize the solver struct //

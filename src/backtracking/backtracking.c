@@ -6,6 +6,7 @@
 */
 
 #include "solver.h"
+#include <stdlib.h>
 
 ////////////////////////
 // Put the maze start //

@@ -6,11 +6,14 @@
 */
 
 #include "solver.h"
+#include <sys/resource.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-////////////////////////////////////
-// Resize your memory stack       //
-// Useful in recursive algorithms //
-////////////////////////////////////
+////////////////////////////////////////////////////////////
+// Resize your memory stack                               //
+// Useful in recursive algorithms to avoid stack overflow //
+////////////////////////////////////////////////////////////
 static void resize_stack(void)
 {
     struct rlimit stack;

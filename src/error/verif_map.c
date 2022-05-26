@@ -6,6 +6,7 @@
 */
 
 #include "solver.h"
+#include <stddef.h>
 
 ///////////////////////////////
 // Verif if the map is valid //

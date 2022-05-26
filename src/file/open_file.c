@@ -6,6 +6,9 @@
 */
 
 #include "solver.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 ///////////////////////////////////////////
 // Return the number of line in the file //
